@@ -27,6 +27,8 @@ public class PanelListener {
 	private ContentPlanFilterRepository contentPlanFilterRepository;
 	
 	private static final Logger log = LoggerFactory.getLogger(PanelListener.class);
+	
+	
 	@RabbitListener(queues = "${spring.rabbitmq.queuename}")
 	public void receiveMessage(final Panel panel) throws IOException {
 		List<ContentPlan> filteredCP = new ArrayList<>();		

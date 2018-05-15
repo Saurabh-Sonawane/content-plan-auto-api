@@ -1,19 +1,25 @@
 package com.ccuk.model;
 
 import java.util.Date;
+
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+@Document(collection="panel")
 public class Panel{
 
+	private String id;
+	
 	private Integer panelId;
-
+	
 	private Integer digitalUnitId;
 	
 	private String panelKey;
-
+	
 	private String districtId;
-
+	
 	private String districtName;
 	
 	@JsonFormat(pattern="dd/MM/yyyy")
@@ -37,31 +43,31 @@ public class Panel{
 	private String panelPosition;
 	
 	private String orient;
-
+	
 	private String shoppingMallId;
-
+	
 	private String shoppingMallName;
 	
 	private String outChargeId;
 	
 	private String outChargeReason;
-
+	
 	private String tvAreaId;
-
+	
 	private String tvAreaName;
 	
 	private String longitude;
 	
 	private String lattitude;
-
+	
 	private String frameId;
-
-	public Integer getPanelId() {
-		return panelId;
+	
+	public String getId() {
+		return id;
 	}
 
-	public void setPanelId(Integer panelId) {
-		this.panelId = panelId;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getDistrictName() {
@@ -191,7 +197,15 @@ public class Panel{
 	public void setLattitude(String lattitude) {
 		this.lattitude = lattitude;
 	}
-	
+
+	public Integer getPanelId() {
+		return panelId;
+	}
+
+	public void setPanelId(Integer panelId) {
+		this.panelId = panelId;
+	}
+
 	public String getPanelKey() {
 		return panelKey;
 	}
@@ -223,7 +237,7 @@ public class Panel{
 	public void setOutChargeId(String outChargeId) {
 		this.outChargeId = outChargeId;
 	}
-	
+
 	public String getFrameId() {
 		return frameId;
 	}
@@ -240,11 +254,10 @@ public class Panel{
 		this.digitalUnitId = digitalUnitId;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Panel [panelId=" + panelId + ", digitalUnitId=" + digitalUnitId + ", panelKey=" + panelKey
-				+ ", districtId=" + districtId + ", districtName=" + districtName + ", inCharge=" + inCharge
+		return "Panel [id=" + id + ", panelId=" + panelId + ", digitalUnitId=" + digitalUnitId + ", panelKey="
+				+ panelKey + ", districtId=" + districtId + ", districtName=" + districtName + ", inCharge=" + inCharge
 				+ ", outOfCharge=" + outOfCharge + ", addressId=" + addressId + ", addressName=" + addressName
 				+ ", postCode=" + postCode + ", panelTypeCode=" + panelTypeCode + ", panelType=" + panelType
 				+ ", panelPosition=" + panelPosition + ", orient=" + orient + ", shoppingMallId=" + shoppingMallId

@@ -16,16 +16,19 @@ public class ContentPlanAutoApiApplication implements RabbitListenerConfigurer{
 	public static void main(String[] args) {
 		SpringApplication.run(ContentPlanAutoApiApplication.class, args);
 	}
+	
 	@Bean
 	public MappingJackson2MessageConverter consumerJackson2MessageConverter() {
 	   return new MappingJackson2MessageConverter();
 	}
+
 	@Bean
 	public DefaultMessageHandlerMethodFactory messageHandlerMethodFactory() {
 	   DefaultMessageHandlerMethodFactory factory = new DefaultMessageHandlerMethodFactory();
 	   factory.setMessageConverter(consumerJackson2MessageConverter());
 	   return factory;
 	}
+
 	@Override
 	public void configureRabbitListeners(final RabbitListenerEndpointRegistrar registrar) {
 	   registrar.setMessageHandlerMethodFactory(messageHandlerMethodFactory());
